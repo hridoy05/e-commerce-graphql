@@ -1,12 +1,11 @@
-const {categories, products} = require('../db')
 exports.Query = {
-    products: ()=> products,
-    product:  (parent,args, context)=> {
+    products: (parent, args, {products})=> products,
+    product:  (parent,args, {products})=> {
       const productId = args.id  
       return products.find(product => product.id === productId)
     },
     categories: ()=> categories,
-    category: (parent, args, context)=> {
+    category: (parent, args, {categories})=> {
         const { id }  = args
         return categories.find(category => category.id ===id)
     }
