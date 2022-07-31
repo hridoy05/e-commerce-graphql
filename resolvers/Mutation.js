@@ -9,7 +9,7 @@ exports.Mutation = {
         db.categories.push(newCategory)
         return newCategory
     },
-    addProduct: (parent, {input}, {products}) => {
+    addProduct: (parent, {input}, {db}) => {
         const {
         name,
         description,
@@ -34,7 +34,7 @@ exports.Mutation = {
         return newProduct
     },
 
-    addReview: (parent, {input}, {reviews})=> {
+    addReview: (parent, {input}, {db})=> {
        const {
         data,
         title,
