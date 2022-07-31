@@ -53,5 +53,20 @@ exports.Mutation = {
        }
        db.reviews.push(newReview)
        return newReview
+    },
+
+    deleteCategory: (parent, { id}, {db})=> {
+        db.categories = db.categories.filter(category=> category.id !== id)
+        db.products = db.products.map(product => {
+            if(product.categoryId === id){
+                return {
+                    ...product,categoryId:null
+                }
+            }
+            else{
+                return product
+            }
+        })
+        return true
     }
 }
