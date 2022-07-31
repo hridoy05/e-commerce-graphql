@@ -287,7 +287,7 @@ let categories = [
   ];
   
 
-  module.exports = {
+  exports.db = {
     categories,
     products,
     reviews
